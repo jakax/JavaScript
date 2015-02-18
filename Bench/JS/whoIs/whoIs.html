@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> Image Guess </title>
+	<style type="text/css">
+	body {
+		margin: 20px;
+	}
+	img {
+		margin: 20px;
+	}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+
+			var images = document.getElementsByTagName("img");
+			for (var i = 0; i < images.length; i++){
+				//images[i].onclick = showAnswer;
+				images[i].onmouseover = showAnswer;
+				images[i].onmouseout = reblur;
+			}	
+			//image.onclick = showAnswer;
+		};
+
+
+		function showAnswer(eventObj){
+			/* 1er Ejmeplo  var image = document.getElementById("zero");
+			image.src = "/home/joaquin.ocampo/Bench/JS/zero.jpg";*/
+			var image = eventObj.target;
+			var name = image.id;
+			name = name + ".jpg";
+			image.src = name;
+			//setTimeout(reblur, 2000, image);
+		}
+
+		function reblur(eventObj){
+			var image = eventObj.target;
+			var name = image.id;
+			name = name + "blur.jpg";
+			image.src = name;
+		}
+
+	</script>
+</head>
+<body>
+	<img id= "zero" src="/home/joaquin.ocampo/Bench/JS/zeroblur.jpg">
+	<img id= "one" src="/home/joaquin.ocampo/Bench/JS/oneblur.jpg">
+	<img id= "two" src="/home/joaquin.ocampo/Bench/JS/twoblur.jpg">
+	<img id= "three" src="/home/joaquin.ocampo/Bench/JS/threeblur.jpg">
+	<img id= "four" src="/home/joaquin.ocampo/Bench/JS/fourblur.jpg">
+	<img id= "five" src="/home/joaquin.ocampo/Bench/JS/fiveblur.jpg">
+</body>
